@@ -1,10 +1,9 @@
-﻿using RayTracer;
-using Tuple = RayTracer.Tuple;
+﻿using Tuple = RayTracer.Tuple;
 
 namespace Tests
 {
     [TestClass]
-    public class Tuples
+    public class TestTuple
     {
         private bool float_eq(float a, float b)
         {
@@ -115,57 +114,57 @@ namespace Tests
         public void VectorMagnitude1()
         {
             Vector v = new(1, 0, 0);
-            Assert.IsTrue(float_eq(v.mag(), 1));
+            Assert.IsTrue(float_eq(v.Mag(), 1));
         }
 
         [TestMethod]
         public void VectorMagnitude2()
         {
             Vector v = new(0, 1, 0);
-            Assert.IsTrue(float_eq(v.mag(), 1));
+            Assert.IsTrue(float_eq(v.Mag(), 1));
         }
 
         [TestMethod]
         public void VectorMagnitude3()
         {
             Vector v = new(0, 0, 1);
-            Assert.IsTrue(float_eq(v.mag(), 1));
+            Assert.IsTrue(float_eq(v.Mag(), 1));
         }
 
         [TestMethod]
         public void VectorMagnitude4()
         {
             Vector v = new(1, 2, 3);
-            Assert.IsTrue(float_eq(v.mag(), MathF.Sqrt(14)));
+            Assert.IsTrue(float_eq(v.Mag(), MathF.Sqrt(14)));
         }
 
         [TestMethod]
         public void VectorMagnitude5()
         {
             Vector v = new(-1, -2, -3);
-            Assert.IsTrue(float_eq(v.mag(), MathF.Sqrt(14)));
+            Assert.IsTrue(float_eq(v.Mag(), MathF.Sqrt(14)));
         }
 
         [TestMethod]
         public void TupleNormalize1()
         {
             Vector v = new(4, 0, 0);
-            Assert.IsTrue(v.normalize() == new Vector(1, 0, 0));
+            Assert.IsTrue(v.Normalize() == new Vector(1, 0, 0));
         }
 
         [TestMethod]
         public void TupleNormalize2()
         {
             Vector v = new(1, 2, 3);
-            Assert.IsTrue(v.normalize() == new Vector(0.26726f, 0.53452f, 0.80178f));
+            Assert.IsTrue(v.Normalize() == new Vector(0.26726f, 0.53452f, 0.80178f));
         }
 
         [TestMethod]
         public void TupleNormalize3()
         {
             Vector v = new(1, 2, 3);
-            Vector norm = new(v.normalize());
-            Assert.IsTrue(float_eq(norm.mag(), 1));
+            Vector norm = new(v.Normalize());
+            Assert.IsTrue(float_eq(norm.Mag(), 1));
         }
 
         [TestMethod]
@@ -173,7 +172,7 @@ namespace Tests
         {
             Vector a = new(1, 2, 3);
             Vector b = new(2, 3, 4);
-            Assert.IsTrue(float_eq(a.dot(b), 20));
+            Assert.IsTrue(float_eq(a.Dot(b), 20));
         }
 
         [TestMethod]
@@ -181,8 +180,8 @@ namespace Tests
         {
             Vector a = new(1, 2, 3);
             Vector b = new(2, 3, 4);
-            Assert.IsTrue(a.cross(b) == new Vector(-1, 2, -1));
-            Assert.IsTrue(b.cross(a) == new Vector(1, -2, 1));
+            Assert.IsTrue(a.Cross(b) == new Vector(-1, 2, -1));
+            Assert.IsTrue(b.Cross(a) == new Vector(1, -2, 1));
         }
 
         [TestMethod]

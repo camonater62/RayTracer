@@ -72,32 +72,32 @@
             return new Tuple(a.X / f, a.Y / f, a.Z/ f, a.W / f);
         }
 
-        public static float magnitude(Tuple a)
+        public static float Magnitude(Tuple a)
         {
-            return a.mag();
+            return a.Mag();
         }
 
-        public float mag()
+        public float Mag()
         {
             return MathF.Sqrt(X * X + Y * Y + Z * Z + W * W);
         }
 
-        public static Tuple normalize(Tuple a)
+        public static Tuple Normalize(Tuple a)
         {
-            return a.normalize();
+            return a.Normalize();
         }
 
-        public Tuple normalize()
+        public Tuple Normalize()
         {
-            float mag = this.mag();
+            float mag = this.Mag();
             return new Tuple(X / mag, Y / mag, Z / mag, W / mag);
         }
 
-        public static float dot(Tuple a, Tuple b) {
-            return a.dot(b);
+        public static float Dot(Tuple a, Tuple b) {
+            return a.Dot(b);
         }
 
-        public float dot(Tuple a)
+        public float Dot(Tuple a)
         {
             return x*a.x + y*a.y + z*a.z + w*a.w;
         }
@@ -141,12 +141,12 @@
             }
         }
 
-        public static Vector cross(Vector a, Vector b)
+        public static Vector Cross(Vector a, Vector b)
         {
-            return a.cross(b);
+            return a.Cross(b);
         }
 
-        public Vector cross(Vector a)
+        public Vector Cross(Vector a)
         {
             float cx = Y * a.Z - Z * a.Y;
             float cy = Z * a.X - X * a.Z;
