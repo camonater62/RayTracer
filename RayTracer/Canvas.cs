@@ -28,11 +28,19 @@ namespace RayTracer
 
         public void Write(int x, int y, Color color)
         {
+            // Make sure we only write in bounds
+            if (x < 0 || y < 0) return;
+            if (x >= Width || y >= Height) return;
+
             Pixels[x, y] = color;
         }
 
         public Color At(int x, int y)
         {
+            // Make sure we only read in bounds
+            if (x < 0 || y < 0) return new Color(0, 0, 0);
+            if (x >= Width || y >= Height) return new Color(0, 0, 0);
+
             return Pixels[x, y];
         }
 
