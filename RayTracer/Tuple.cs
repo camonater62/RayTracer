@@ -130,11 +130,10 @@
             return new Point(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
         }
 
-        public static Point operator -(Point a)
+        public static Point operator -(Point a, Vector b)
         {
-            return new Point(-a.X, -a.Y, -a.Z);
+            return new Point(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
-
 
         public static Vector operator -(Point a, Point b)
         {
@@ -170,6 +169,46 @@
             float cy = Z * a.X - X * a.Z;
             float cz = X * a.Y - Y * a.X;
             return new Vector(cx, cy, cz);
+        }
+
+        public static Vector operator -(Vector a)
+        {
+            return new Vector(-a.X, -a.Y, -a.Z);
+        }
+
+        public static Vector operator +(Vector a, Vector b)
+        {
+            return new Vector(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+        }
+
+        public static Vector operator -(Vector a, Vector b)
+        {
+            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
+
+        public static Vector operator *(Vector a, float f)
+        {
+            return new Vector(a.X * f, a.Y * f, a.Z * f);
+        }
+
+        public static Vector operator /(Vector a, float f)
+        {
+            if (f == 0.0f)
+            {
+                throw new DivideByZeroException();
+            }
+            return new Vector(a.X / f, a.Y / f, a.Z / f);
+        }
+
+        public static Tuple Normalize(Tuple a)
+        {
+            return a.Normalize();
+        }
+
+        public Tuple Normalize()
+        {
+            float mag = this.Mag();
+            return new Tuple(X / mag, Y / mag, Z / mag, W / mag);
         }
     }
 
