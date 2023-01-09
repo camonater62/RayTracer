@@ -223,6 +223,30 @@
        
         }
 
+        public static Color operator -(Color a)
+        {
+            return new Color(-a.X, -a.Y, -a.Z);
+        }
+
+        public static Color operator +(Color a, Color b)
+        {
+            return new Color(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+        }
+
+        public static Color operator -(Color a, Color b)
+        {
+            return new Color(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
+        }
+
+        public static Color operator /(Color a, float f)
+        {
+            if (f == 0.0f)
+            {
+                throw new DivideByZeroException();
+            }
+            return new Color(a.X / f, a.Y / f, a.Z / f);
+        }
+
         public static Color operator *(Color a, Color b)
         {
             return new Color(a.R * b.R, a.G * b.G, a.B * b.B);
