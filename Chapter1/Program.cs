@@ -1,4 +1,6 @@
-﻿namespace RayTracer
+﻿using RayTracer;
+
+namespace Chapter1
 {
     internal class Program
     {
@@ -16,7 +18,7 @@
         {
             Point position = proj.position + proj.velocity;
             Vector velocity = proj.velocity + env.gravity + env.wind;
-            return new Projectile { position = position, velocity= velocity };
+            return new Projectile { position = position, velocity = velocity };
         }
         static void Main(string[] args)
         {
@@ -27,7 +29,8 @@
             e.gravity = new Vector(0, -0.1f, 0);
             e.wind = new Vector(-0.01f, 0, 0);
 
-            while (p.position.Y > 0) { 
+            while (p.position.Y > 0)
+            {
                 p = tick(e, p);
                 Console.WriteLine(p.position);
             }
