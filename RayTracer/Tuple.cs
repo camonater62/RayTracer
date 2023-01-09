@@ -72,16 +72,6 @@
             return new Tuple(a.X / f, a.Y / f, a.Z/ f, a.W / f);
         }
 
-        public static float Magnitude(Tuple a)
-        {
-            return a.Mag();
-        }
-
-        public float Mag()
-        {
-            return MathF.Sqrt(X * X + Y * Y + Z * Z + W * W);
-        }
-
         public static Tuple Normalize(Tuple a)
         {
             return a.Normalize();
@@ -95,6 +85,15 @@
 
         public static float Dot(Tuple a, Tuple b) {
             return a.Dot(b);
+        }
+        public static float Magnitude(Tuple a)
+        {
+            return a.Mag();
+        }
+
+        public float Mag()
+        {
+            return MathF.Sqrt(X * X + Y * Y + Z * Z + W * W);
         }
 
         public float Dot(Tuple a)
@@ -129,6 +128,17 @@
         public static Point operator +(Point a, Vector b)
         {
             return new Point(a.X + b.X, a.Y + b.Y, a.Z + b.Z);
+        }
+
+        public static Point operator -(Point a)
+        {
+            return new Point(-a.X, -a.Y, -a.Z);
+        }
+
+
+        public static Vector operator -(Point a, Point b)
+        {
+            return new Vector(a.X - b.X, a.Y - b.Y, a.Z - b.Z);
         }
     }
 
