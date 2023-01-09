@@ -105,7 +105,20 @@
         {
             return $"[{X}, {Y}, {Z}, {W}]";
         }
-        
+
+        public override bool Equals(object? obj)
+        {
+            return obj is Tuple tuple &&
+                   x == tuple.x &&
+                   y == tuple.y &&
+                   z == tuple.z &&
+                   w == tuple.w;
+        }
+
+        public override int GetHashCode()
+        {
+            return ToString().GetHashCode(); // Lazy solution
+        }
     }
 
     public class Point : Tuple
@@ -115,7 +128,7 @@
 
         }
 
-        public float W { get; private set; }
+        public new float W { get; private set; }
 
         public Point(Tuple a) : base(a.X, a.Y, a.Z, a.W)
         {
@@ -148,7 +161,7 @@
 
         }
 
-        public float W { get; private set; }
+        public new float W { get; private set; }
         
         public Vector(Tuple a) : base(a.X, a.Y, a.Z, a.W)
         {
@@ -205,7 +218,7 @@
             return a.Normalize();
         }
 
-        public Vector Normalize()
+        public new Vector Normalize()
         {
             float mag = this.Mag();
             return new Vector(X / mag, Y / mag, Z / mag);
