@@ -200,15 +200,15 @@
             return new Vector(a.X / f, a.Y / f, a.Z / f);
         }
 
-        public static Tuple Normalize(Tuple a)
+        public static Vector Normalize(Vector a)
         {
             return a.Normalize();
         }
 
-        public Tuple Normalize()
+        public Vector Normalize()
         {
             float mag = this.Mag();
-            return new Tuple(X / mag, Y / mag, Z / mag, W / mag);
+            return new Vector(X / mag, Y / mag, Z / mag);
         }
     }
 

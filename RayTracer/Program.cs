@@ -15,14 +15,14 @@
         static Projectile tick(Environment env, Projectile proj)
         {
             Point position = proj.position + proj.velocity;
-            Vector velocity = new Vector(proj.velocity + env.gravity + env.wind);
+            Vector velocity = proj.velocity + env.gravity + env.wind;
             return new Projectile { position = position, velocity= velocity };
         }
         static void Main(string[] args)
         {
             Projectile p = new Projectile();
             p.position = new Point(0, 1, 0);
-            p.velocity = new Vector(new Vector(1, 1, 0).Normalize());
+            p.velocity = new Vector(1, 1, 0).Normalize();
             Environment e = new Environment();
             e.gravity = new Vector(0, -0.1f, 0);
             e.wind = new Vector(-0.01f, 0, 0);
