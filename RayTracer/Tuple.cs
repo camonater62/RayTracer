@@ -1,4 +1,4 @@
-﻿namespace RayTracer
+namespace RayTracer
 {
     public class Tuple
     {
@@ -176,11 +176,11 @@
             return a.Cross(b);
         }
 
-        public Vector Cross(Vector a)
+        public Vector Cross(Vector b)
         {
-            float cx = Y * a.Z - Z * a.Y;
-            float cy = Z * a.X - X * a.Z;
-            float cz = X * a.Y - Y * a.X;
+            float cx = Y * b.Z - Z * b.Y;
+            float cy = Z * b.X - X * b.Z;
+            float cz = X * b.Y - Y * b.X;
             return new Vector(cx, cy, cz);
         }
 
