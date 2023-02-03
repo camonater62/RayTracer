@@ -16,6 +16,8 @@ namespace RayTracer
             set { Values[x, y] = value; }
         }
 
+        public static Matrix4 IDENTITY { get; } = new(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+
         public Matrix4(float a1, float a2, float a3, float a4,
                        float b1, float b2, float b3, float b4,
                        float c1, float c2, float c3, float c4,

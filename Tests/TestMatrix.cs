@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Tuple = RayTracer.Tuple;
 
 namespace Tests
 {
@@ -71,6 +72,24 @@ namespace Tests
             Matrix4 prod = A * B;
             Matrix4 correct = new(20, 22, 50, 48, 44, 54, 114, 108, 40, 58, 110, 102, 16, 26, 46, 42);
             Assert.IsTrue(prod == correct);
+        }
+
+        [TestMethod]
+        public void MatrixTupleMultiplication()
+        {
+            Matrix4 A = new(1, 2, 3, 4, 2, 4, 4, 2, 8, 6, 4, 1, 0, 0, 0, 1);
+            Tuple b = new(1, 2, 3, 1);
+            Assert.IsTrue(A * b == new Tuple(18, 24, 33, 1));
+        }
+
+        [TestMethod]
+        public void IdentityMatrixMultiplication()
+        {
+            Matrix4 A = new(0, 1, 2, 4, 1, 2, 4, 8, 2, 4, 8, 16, 4, 8, 16, 32);
+            Assert.IsTrue(A * Matrix4.IDENTITY == A);
+
+            Tuple a = new(1, 2, 3, 4);
+            Assert.IsTrue(Matrix4.IDENTITY * a == a);
         }
     }
 }

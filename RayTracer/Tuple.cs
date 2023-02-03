@@ -63,6 +63,16 @@ namespace RayTracer
             return new Tuple(a.X * f, a.Y * f, a.Z* f, a.W * f);
         }
 
+        public static Tuple operator *(Matrix4 M, Tuple a)
+        {
+            Tuple t = new(0, 0, 0, 0);
+            t.x = M[0, 0] * a.x + M[0, 1] * a.y + M[0, 2] * a.z + M[0, 3] * a.w;
+            t.y = M[1, 0] * a.x + M[1, 1] * a.y + M[1, 2] * a.z + M[1, 3] * a.w;
+            t.z = M[2, 0] * a.x + M[2, 1] * a.y + M[2, 2] * a.z + M[2, 3] * a.w;
+            t.w = M[3, 0] * a.x + M[3, 1] * a.y + M[3, 2] * a.z + M[3, 3] * a.w;
+            return t;
+        }
+
         public static Tuple operator /(Tuple a, float f)
         {
             if (f == 0.0f)
