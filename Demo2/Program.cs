@@ -1,6 +1,6 @@
 ﻿using RayTracer;
 
-namespace Chapter2
+namespace Demo2
 {
     internal class Program
     {
