@@ -164,7 +164,67 @@ namespace RayTracer
             return M;
         }
 
-        public string ToString() {
+        public static Matrix4 Translation(float x, float y, float z)
+        {
+            return new Matrix4(
+                1, 0, 0, x,
+                0, 1, 0, y,
+                0, 0, 1, z,
+                0, 0, 0, 1
+            );
+        }
+
+        public static Matrix4 Scaling(float x, float y, float z)
+        {
+            return new Matrix4(
+                x, 0, 0, 0,
+                0, y, 0, 0,
+                0, 0, z, 0,
+                0, 0, 0, 1
+            );
+        }
+
+        public static Matrix4 RotationX(float r)
+        {
+            return new Matrix4(
+                1, 0, 0, 0,
+                0, MathF.Cos(r), -MathF.Sin(r), 0,
+                0, MathF.Sin(r), MathF.Cos(r), 0,
+                0, 0, 0, 1
+            );
+        }
+
+        public static Matrix4 RotationY(float r)
+        {
+            return new Matrix4(
+                MathF.Cos(r), 0, MathF.Sin(r), 0,
+                0, 1, 0, 0,
+                -MathF.Sin(r), 0, MathF.Cos(r), 0,
+                0, 0, 0, 1
+            );
+        }
+
+        public static Matrix4 RotationZ(float r)
+        {
+            return new Matrix4(
+                MathF.Cos(r), -MathF.Sin(r), 0, 0,
+                MathF.Sin(r), MathF.Cos(r), 0, 0,
+                0, 0, 1, 0,
+                0, 0, 0, 1
+            );
+        }
+
+        public static Matrix4 Shearing(float xy, float xz, float yx, float yz, float zx, float zy)
+        {
+            return new Matrix4(
+                1, xy, xz, 0,
+                yx, 1, yz, 0,
+                zx, zy, 1, 0,
+                0, 0, 0, 1
+            );
+        }
+
+        public override string ToString() {
             string s = "";
 
             for (int row = 0; row < 4; row++)
