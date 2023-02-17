@@ -238,5 +238,19 @@ namespace RayTracer
 
             return s;
         }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Matrix4) {
+                return this == (Matrix4) obj;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            // The easy way
+            return ToString().GetHashCode();
+        }
     }
 }

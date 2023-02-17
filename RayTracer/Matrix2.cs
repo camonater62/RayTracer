@@ -65,7 +65,7 @@ namespace RayTracer
             return this[0, 0] * this[1, 1] - this[0, 1] * this[1, 0];
         }
 
-        public string ToString() {
+        public override string ToString() {
             string s = "";
 
             for (int row = 0; row < 2; row++)
@@ -78,6 +78,20 @@ namespace RayTracer
             }
 
             return s;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Matrix2) {
+                return this == (Matrix2) obj;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            // The easy way
+            return ToString().GetHashCode();
         }
     }
 }

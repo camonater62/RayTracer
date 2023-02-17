@@ -111,7 +111,7 @@ namespace RayTracer
             return sum;
         }
 
-        public string ToString() {
+        public override string ToString() {
             string s = "";
 
             for (int row = 0; row < 3; row++)
@@ -124,6 +124,20 @@ namespace RayTracer
             }
 
             return s;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            if (obj != null && obj is Matrix3) {
+                return this == (Matrix3) obj;
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            // The easy way
+            return ToString().GetHashCode();
         }
     }
 }
