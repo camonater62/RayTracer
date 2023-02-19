@@ -1,6 +1,4 @@
-﻿using static RayTracer.Utility;
-
-namespace Tests
+﻿namespace Tests
 {
     [TestClass]
     public class TestSpheres

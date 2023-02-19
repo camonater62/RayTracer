@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Tuple = RayTracer.Tuple;
-
-namespace Tests
+﻿namespace Tests
 {
     [TestClass]
     public class TestMatrix
